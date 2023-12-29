@@ -1,0 +1,231 @@
+<script setup lang="ts">
+import ContentComponent from '@/components/ContentComponent.vue'
+import LanguageSelect from '@/components/LanguageSelect.vue'
+import TitleComponent from '@/components/TitleComponent.vue'
+import data from '@/data'
+import router from '@/router'
+import { doSearch } from '@/utils'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const i18n = useI18n()
+
+const lexileInput = ref<HTMLInputElement>()
+const gradeInput = ref<HTMLInputElement>()
+const keywordInput = ref<HTMLInputElement>()
+
+function submitSearch() {
+  if (keywordInput.value) {
+    doSearch(keywordInput.value.value)
+  }
+}
+
+function submitLexile() {
+  if (lexileInput.value?.value) {
+    router.push({ name: 'lexile', params: { lexile: lexileInput.value.value } })
+  } else if (gradeInput.value?.value) {
+    router.push({ name: 'grade', params: { grade: gradeInput.value.value } })
+  } else {
+    router.push({ name: 'LexileGrade' })
+  }
+}
+
+function t(key: string): string {
+  return i18n.t('page.library.' + key)
+}
+</script>
+
+<template>
+  <TitleComponent>
+    <img class="title-img" src="@/assets/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
+  </TitleComponent>
+  <ContentComponent>
+    <LanguageSelect></LanguageSelect>
+    <div class="grid">
+      <div class="spancol element" style="background-color: #8884">
+        <p>
+          {{ t('search.text1') }}<b>{{ t('search.bold1') }}</b
+          >{{ t('search.text2') }}<b>{{ t('search.bold2') }}</b
+          >{{ t('search.text3') }}<a :href="data.catalogLink">{{ t('search.link') }}</a>
+        </p>
+        <form @submit.prevent="submitSearch">
+          <p style="padding: 0 0 0 0.5em">
+            <input
+              style="width: 60%"
+              type="text"
+              :placeholder="t('search.placeholder')"
+              ref="keywordInput"
+            />
+            <button>{{ $t('general.button.search') }}</button>
+          </p>
+        </form>
+      </div>
+      <div class="spanrow element" style="background-color: #8c84">
+        <h2>
+          <span>{{ t('lexile.title') }}</span>
+        </h2>
+        <p>
+          {{ t('lexile.text1') }}<b>{{ t('lexile.bold1') }}</b
+          >{{ t('lexile.text2') }}
+        </p>
+        <form @submit.prevent="submitLexile">
+          <p style="padding: 0 0 0 0.5em">
+            <input
+              type="number"
+              style="width: 24%"
+              :placeholder="t('lexile.lexile')"
+              step="1"
+              min="-200"
+              max="1700"
+              ref="lexileInput"
+            />{{ t('lexile.or')
+            }}<input
+              type="number"
+              style="width: 24%"
+              :placeholder="t('lexile.grade')"
+              step="1"
+              min="1"
+              max="12"
+              ref="gradeInput"
+            />
+            <button>{{ $t('general.button.search') }}</button>
+          </p>
+        </form>
+        <p>
+          <a href="#/page/lexile">{{ t('lexile.link') }}</a>
+        </p>
+      </div>
+      <div class="spanrow element" style="background-color: #fa84">
+        <h2>
+          <span>{{ t('booklist.title') }}</span>
+        </h2>
+        <p>
+          {{ t('booklist.text1') }}<b>{{ t('booklist.bold1') }}</b
+          >{{ t('booklist.text2') }}
+        </p>
+        <ul>
+          <li>
+            <a href="#/tag/Book%20Lists-NY%20Times%20Editor's%20Choice">
+              {{ t('booklist.list1') }}
+            </a>
+          </li>
+          <li>
+            <a href="#/tag/Book%20Lists-Junior%20Library%20Guild%20Selection">
+              {{ t('booklist.list2') }}
+            </a>
+          </li>
+          <li>
+            <a href="#/tag/Book%20Lists-NY%20Public%20Library%20100%20Best%20Titles">
+              {{ t('booklist.list3') }}
+            </a>
+          </li>
+        </ul>
+        <p>
+          <a href="#/category/Book%20Lists">{{ t('booklist.link') }}</a>
+        </p>
+      </div>
+      <div class="spanrow element" style="background-color: #8ce4">
+        <h2>
+          <span>{{ t('award.title') }}</span>
+        </h2>
+        <p>
+          {{ t('award.text1') }}<b>{{ t('award.bold1') }}</b
+          >{{ t('award.text2') }}
+        </p>
+        <ul>
+          <li>
+            <a href="#/tag/Award%20Winners-ALA%20Best%20Book%20for%20Young%20Adults">
+              {{ t('award.list1') }}
+            </a>
+          </li>
+          <li>
+            <a href="#/tag/Award%20Winners-Golden%20Kite%20Award/Honor%20Book">
+              {{ t('award.list2') }}
+            </a>
+          </li>
+          <li>
+            <a href="#/tag/Award%20Winners-SLJ%20Best%20Book">{{ t('award.list3') }}</a>
+          </li>
+        </ul>
+        <p>
+          <a href="#/category/Award%20Winners">{{ t('award.link') }}</a>
+        </p>
+      </div>
+      <div class="spanrow element" style="background-color: #fd54">
+        <h2>
+          <span>{{ t('wkar.title') }}</span>
+        </h2>
+        <p>
+          {{ t('wkar.text1') }}<b>{{ t('wkar.bold1') }}</b
+          >{{ t('wkar.text2') }}
+        </p>
+        <p>
+          <a href="#/category/What%20Kids%20Are%20Reading">{{ t('wkar.link') }}</a>
+        </p>
+      </div>
+      <div class="spancol element" style="background-color: #ccc4">
+        <p>
+          {{ t('rec.pretext1') }}<b>{{ t('rec.prebold1') }}</b
+          >{{ t('rec.pretext2') }}<b>{{ t('rec.prebold2') }}</b
+          >{{ t('rec.pretext3')
+          }}<a href="https://forms.microsoft.com/r/NXmTNvVfR9" target="_blank">{{
+            t('rec.formlink')
+          }}</a
+          >{{ t('rec.preprint') }}<a href="/recform.pdf">{{ t('rec.printlink') }}</a
+          >{{ t('rec.postprint')
+          }}<RouterLink :to="{ name: 'recommended' }">{{ t('rec.reclink') }}</RouterLink>
+        </p>
+      </div>
+    </div>
+    <div class="center">
+      <p>{{ t('qrcode.text') }}</p>
+      <img src="@/assets/qr-binj.svg" alt="qrcode of this site" class="book-image" />
+    </div>
+  </ContentComponent>
+</template>
+
+<style scoped>
+.title-img {
+  max-width: 40em;
+  width: 100%;
+}
+.center {
+  text-align: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+.element {
+  box-shadow: 0 0 0.3em #0001;
+  padding: 0 1em;
+  margin: 1em;
+  border-radius: 1em;
+}
+.spancol {
+  grid-column: span 2;
+}
+@media screen and (max-width: 37.5em) {
+  .element {
+    padding: 0 4vw;
+    margin: 4vw;
+    border-radius: 4vw;
+  }
+}
+@media screen and (max-width: 48em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .spancol {
+    grid-column: unset;
+  }
+}
+@media screen and (min-width: 72em) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .spanrow {
+    grid-row: span 2;
+  }
+}
+</style>

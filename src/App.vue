@@ -1,85 +1,123 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import data from './data'
+import router from './router'
+const route = useRoute()
+
+const isHomePage = computed(() => route.name === data.homePage)
+const isShowTop = ref(false)
+
+function onScroll() {
+  if (window.scrollY >= 2000) {
+    isShowTop.value = true
+  } else {
+    isShowTop.value = false
+  }
+}
+
+onBeforeMount(() => {
+  window.addEventListener('scroll', onScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+})
+
+function scrollTop() {
+  document.querySelector('#top')?.scrollIntoView()
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="main">
+    <div class="titles">
+      <div class="title-text" v-if="isHomePage">BASIS International School Nanjing Library</div>
+      <a class="link" href="#" v-else>
+        <img class="title-image" src="./assets/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
+      </a>
     </div>
-  </header>
-
-  <RouterView />
+    <div class="about">
+      <RouterLink
+        v-for="page in data.pages.filter((p) => p.display)"
+        class="link"
+        :key="page.path"
+        :to="{ name: page.name }"
+      >
+        {{ page.name.toUpperCase() }}
+      </RouterLink>
+    </div>
+    <div class="content">
+      <RouterView :key="$route.fullPath" />
+    </div>
+  </div>
+  <img
+    v-if="isShowTop"
+    class="float"
+    src="./assets/top-icon.svg"
+    alt="Go to top"
+    @click="scrollTop"
+  />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.main {
+  display: grid;
+  grid-template-areas: 'titles about' 'main main';
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 1fr auto;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.titles,
+.about {
+  padding: 0.5em 0 0;
+  font-size: 1.2em;
+  background-color: var(--background-color-trans);
 }
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.titles {
+  grid-area: titles;
+  display: flex;
+  font-weight: bold;
 }
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.about {
+  grid-area: about;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.content {
+  grid-area: main;
 }
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.title-image {
+  height: 1.2em;
 }
-
-nav a:first-of-type {
-  border: 0;
+.link,
+.titles div {
+  color: #ccc;
+  padding: 0 1em;
+  white-space: nowrap;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.float {
+  position: fixed;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: drop-shadow(0px 2px 3px);
+  bottom: 1.5em;
+  right: 1.5em;
+}
+@media screen and (max-width: 37.5em) {
+  .main {
+    grid-template-areas: 'titles' 'about' 'heading' 'main';
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 100%;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
+  .titles {
+    display: none;
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .about {
+    font-size: 4vw;
   }
 }
 </style>

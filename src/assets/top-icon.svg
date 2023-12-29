@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 12.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
+
+<svg
+   id="Layer_1"
+   style="enable-background:new 0 0 138.218 138.177"
+   space="preserve"
+   sodipodi:docname="top-icon.svg"
+   viewBox="0 0 138.218 138.177"
+   sodipodi:version="0.32"
+   version="1.1"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2387" />
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1449"
+     pagecolor="#ffffff"
+     inkscape:zoom="2.605354"
+     inkscape:window-x="239"
+     borderopacity="1.0"
+     inkscape:current-layer="g3"
+     inkscape:cx="69.85615"
+     inkscape:cy="69.85615"
+     inkscape:window-y="184"
+     inkscape:window-height="715"
+     inkscape:pageopacity="0.0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:window-maximized="0" />
+  <g
+     id="g3">
+    <path
+       id="path5"
+       style="fill:#970F00"
+       d="m0 69.065c0 35.214 27.621 65.603 62.715 68.829 35.105 3.229 67.956-21.459 74.378-56.175 6.42-34.713-15.243-69.677-49.261-79.215-34.026-9.539-70.796 8.989-83.346 42.021-2.971 7.823-4.483 16.176-4.483 24.544" />
+    <radialGradient
+       id="XMLID_2_"
+       gradientUnits="userSpaceOnUse"
+       cy="69.065"
+       cx="69.124"
+       r="64.235">
+      <stop
+         id="stop8"
+         style="stop-color:#F28888"
+         offset="0" />
+      <stop
+         id="stop10"
+         style="stop-color:#D82A2A"
+         offset="1" />
+    </radialGradient>
+    <path
+       id="path12"
+       style="fill:url(#XMLID_2_)"
+       d="m4.889 69.065c0 35.007 29.229 64.235 64.235 64.235 35.008 0 64.235-29.229 64.235-64.235s-29.228-64.235-64.235-64.235-64.236 29.229-64.236 64.235" />
+    <path
+       id="path14"
+       style="fill:#B20D0D"
+       d="m11.084 44.097c-5.19 30.251 12.878 60.639 41.932 70.538 30.815 10.499 65.49-5.02 78.377-34.867-6.193 36.122-43.333 59.869-78.723 50.318-36.536-9.86-56.643-51.153-41.583-85.993" />
+    <path
+       id="path16"
+       style="fill:#EF5656"
+       d="m29.004 40.551c8.885 1.837 19.112-10.748 26.814-13.949 14.39-5.983 32.366-3.205 45.403 4.941 13.79 8.616 23.599 25.164 25.107 41.411 0.005 0.046 0.005 0.056 0 0.025-1.018-9.837-0.33-19.086-4.076-28.597-6.206-15.761-19.633-28.104-35.816-33.063-16.735-5.126-35.035-1.864-49.452 7.907-4.449 3.017-21.584 18.508-7.978 21.325" />
+    <path
+       id="path9851-5"
+       stroke-linejoin="round"
+       style="enable-background:new 0 0 138.218 138.177;fill:#ffffff;stroke:#800000;stroke-width:0.585443;stroke-dasharray:none;color:#000000"
+       d="m 344.33,332.02 4.56,4.57 12.93,-12.93 12.81,12.8 4.6,-4.6 -17.37,-17.37 z"
+       stroke="#116b1c"
+       stroke-linecap="round"
+       stroke-width="1.75"
+       fill="url(#linearGradient2780)"
+       transform="matrix(1.7838219,0,0,1.7838219,-574.34347,-497.79918)" />
+    <path
+       id="path9851"
+       stroke-linejoin="round"
+       style="enable-background:new 0 0 138.218 138.177;fill:#ffffff;stroke:#800000;stroke-width:0.585443;stroke-dasharray:none;color:#000000"
+       d="m 344.33,332.02 4.56,4.57 12.93,-12.93 12.81,12.8 4.6,-4.6 -17.37,-17.37 z"
+       stroke="#116b1c"
+       stroke-linecap="round"
+       stroke-width="1.75"
+       fill="url(#linearGradient2780)"
+       transform="matrix(1.7838219,0,0,1.7838219,-575.37704,-533.40373)" />
+  </g>
+  <metadata
+     id="metadata2384">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:date>2010-03-28T09:28:54</dc:date>
+        <dc:description>Drawing by Francesco 'Architetto' Rollandin. From OCAL 0.18 release.</dc:description>
+        <dc:source>https://openclipart.org/detail/34735/architetto----tasto-9-by-anonymous</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Anonymous</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>button</rdf:li>
+            <rdf:li>circle</rdf:li>
+            <rdf:li>help</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>question mark</rdf:li>
+            <rdf:li>red</rdf:li>
+            <rdf:li>sign</rdf:li>
+            <rdf:li>symbol</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

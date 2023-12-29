@@ -1,3 +1,7 @@
+/public/img/covers
+/public/books.json
+/public/data.json
+
 # Logs
 logs
 *.log
