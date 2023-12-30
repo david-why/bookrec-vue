@@ -175,7 +175,28 @@ function t(key: string): string {
           <a href="#/category/Award%20Winners">{{ t('award.link') }}</a>
         </p>
       </div>
-      <div class="spanrow element" style="background-color: #fd54">
+      <div class="spanrow element" style="background-color: #ccc4">
+        <h2>
+          <span>{{ t('reclist.title') }}</span>
+        </h2>
+        <p>
+          {{ t('reclist.text1') }}<b>{{ t('reclist.bold1') }}</b
+          >{{ t('reclist.text2') }}
+        </p>
+        <ul>
+          <li v-for="tag in data.issues" :key="tag">
+            <RouterLink :to="{ name: 'tag', params: { tag } }">{{
+              tag.split('-').slice(1).join('-')
+            }}</RouterLink>
+          </li>
+        </ul>
+        <p>
+          <RouterLink :to="{ name: 'category', params: { category: 'Nighthawk\'s Choice' } }">{{
+            t('reclist.link')
+          }}</RouterLink>
+        </p>
+      </div>
+      <div class="spancol element" style="background-color: #fd54">
         <h2>
           <span>{{ t('wkar.title') }}</span>
         </h2>
@@ -185,19 +206,6 @@ function t(key: string): string {
         </p>
         <p>
           <a href="#/category/What%20Kids%20Are%20Reading">{{ t('wkar.link') }}</a>
-        </p>
-      </div>
-      <div class="spancol element" style="background-color: #ccc4">
-        <p>
-          {{ t('rec.pretext1') }}<b>{{ t('rec.prebold1') }}</b
-          >{{ t('rec.pretext2') }}<b>{{ t('rec.prebold2') }}</b
-          >{{ t('rec.pretext3')
-          }}<a href="https://forms.microsoft.com/r/NXmTNvVfR9" target="_blank">{{
-            t('rec.formlink')
-          }}</a
-          >{{ t('rec.preprint') }}<a href="/recform.pdf">{{ t('rec.printlink') }}</a
-          >{{ t('rec.postprint')
-          }}<RouterLink :to="{ name: 'recommended' }">{{ t('rec.reclink') }}</RouterLink>
         </p>
       </div>
     </div>

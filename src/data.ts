@@ -11,19 +11,9 @@ function prefixed(prefix: string, messages: Record<string, string>) {
 
 export default {
   title: 'BASIS International School Nanjing Library',
-  catalogLink: 'https://njlibrary.basischina.com/',
+  catalogLink: 'https://njlibrary.basischina.com/common/welcome.jsp?site=100',
 
-  categories: {
-    'Award Winners': {
-      descRequired: true
-    },
-    'Book Lists': {
-      descRequired: true
-    },
-    'What Kids Are Reading': {
-      descRequired: false
-    }
-  } as Record<string, { descRequired: boolean }>,
+  categories: ['Award Winners', 'Book Lists', 'What Kids Are Reading'],
 
   interestLevels: ['LG', 'MG', 'MG+', 'UG'],
 
@@ -59,15 +49,21 @@ export default {
   ],
   homePage: 'Home',
 
+  issues: [
+    "Nighthawk's Choice-Issue 1. What Kids Are Reading - Lower Grade",
+    "Nighthawk's Choice-Issue 1. What Kids Are Reading - Middle Grade",
+    "Nighthawk's Choice-Issue 1. What Kids Are Reading - Upper Grade"
+  ],
+
   messages: {
     en: {
       'general.button.search': 'Search',
 
       ...prefixed('page.library', {
         ...prefixed('search', {
-          text1: "Let's explore the ",
+          text1: "Welcome to the BASIS International School Nanjing Library! Let's explore the ",
           bold1: 'more than 10,000 English books',
-          text2: ' we have, right here, in our school library! Search our books by ',
+          text2: ' we have, right here! Search our books by ',
           bold2: 'title, author, ISBN',
           text3: ', etc. ',
           link: 'You can also click here to visit the official catalog of our school library.',
@@ -117,17 +113,12 @@ export default {
           link: 'Click here to check out their lists!'
         }),
 
-        ...prefixed('rec', {
-          pretext1: 'If you are a BINJ ',
-          prebold1: 'student',
-          pretext2: ' or ',
-          prebold2: 'teacher',
-          pretext3: ' and want to recommend a book, ',
-          formlink: 'please fill out the form here (log in with your school email)',
-          preprint: '! Alternatively, you can ',
-          printlink: 'print out a recommendation form',
-          postprint: ' and hand it to a library teacher, or pick up a form at the library. ',
-          reclink: 'Click here to view recommended books.'
+        ...prefixed('reclist', {
+          title: "Nighthawk's Choice",
+          text1: 'We are proud to present the ',
+          bold1: "Nighthawk's Choice",
+          text2: ' book lists, which are book lists created by our students. Click on the links to check them out!',
+          link: "See all of the Nighthawk's Choice book lists here!"
         }),
 
         'qrcode.hidden': 'Click here and scan the QR code to visit this site on your mobile device',
@@ -143,7 +134,7 @@ export default {
           line3:
             'When you use this site, I hope it leads you down many pathways to explore books that captivate you and help you learn, grow, and most of all, find a love of reading.',
           line4: 'Read on and you will read well!',
-          author: '― Mr. Daniel Hovland, former Head of School'
+          author: '― Mr. Daniel Hovland'
         }),
 
         ...prefixed('library', {
@@ -375,17 +366,12 @@ export default {
           link: '点击这里去看看吧。'
         }),
 
-        ...prefixed('rec', {
-          pretext1: '如果你是一名南京贝赛思的',
-          prebold1: '学生',
-          pretext2: '或',
-          prebold2: '老师',
-          pretext3: '，并且你想推荐一本图书，请',
-          formlink: '点击链接填写表单（需要用您的学校邮箱登录）',
-          preprint: '！你也可以',
-          printlink: '打印一份推荐单',
-          postprint: '并交给图书馆老师，或者在图书馆填写推荐单。',
-          reclink: '点击这里查看大家推荐的图书。'
+        ...prefixed('reclist', {
+          title: "夜鹰之选",
+          text1: '我们学校的同学为大家制作了',
+          bold1: "《夜鹰之选》",
+          text2: '书单，点击下面的链接查看：',
+          link: "点击这里查看所有《夜鹰之选》的书单。"
         }),
 
         'qrcode.hidden': '手机访问本站请点击这里并扫描二维码',
@@ -401,7 +387,7 @@ export default {
           line3:
             '当你使用这个网站时，我希望它能引导你去探索那些令人着迷的书籍，帮助你学习和成长；最重要的是，希望你找到对阅读的热爱。',
           line4: '坚持阅读，越读越好！',
-          author: '― 前校长 Daniel Hovland 先生'
+          author: '― Daniel Hovland 先生'
         }),
 
         ...prefixed('library', {
@@ -483,8 +469,7 @@ export default {
             text2: '；第二个标签是图书的兴趣值和年级值的范围，例如',
             text3: '。您可以根据这两个标签来判断书单里图书的难易程度；'
           }),
-          item4:
-            '书单卡片里显示的图书数量只统计了在图书馆里的馆藏图书，可能并不完整。'
+          item4: '书单卡片里显示的图书数量只统计了在图书馆里的馆藏图书，可能并不完整。'
         }),
 
         ...prefixed('books', {
@@ -505,17 +490,16 @@ export default {
               '（BR开头的蓝思值表示学龄前图书）。如果一本书的蓝思值和您的蓝思阅读能力值相差不远，那它就非常适合您阅读：既不会太难，也不是全无挑战；'
           }),
           ...prefixed('item4', {
-            text1:
-              '除了蓝思值，大多数图书的顶部还标注了它的兴趣值和年级值，例如',
+            text1: '除了蓝思值，大多数图书的顶部还标注了它的兴趣值和年级值，例如',
             text2:
               '表示一本适合四到八年级阅读、文字难度在四年级中期的图书。兴趣值告诉您这本书最适合什么年龄的人阅读，分别是：',
             text3: '表示三年级以下、',
             text4: '表示六年级以上、',
-            text5: '表示九年级以上。年级值表示这本书的文字难度最适合哪个年级的学生阅读，它和蓝思值基本是对应的，例如年级值1.0表示它适合一年级新生阅读，它对应的蓝思值是50L；年级值9.0对应的蓝思值是1200L；'
+            text5:
+              '表示九年级以上。年级值表示这本书的文字难度最适合哪个年级的学生阅读，它和蓝思值基本是对应的，例如年级值1.0表示它适合一年级新生阅读，它对应的蓝思值是50L；年级值9.0对应的蓝思值是1200L；'
           }),
           ...prefixed('item5', {
-            text1:
-              '每本图书的右上角标注了图书的馆藏位置，例如',
+            text1: '每本图书的右上角标注了图书的馆藏位置，例如',
             text2: '或者',
             text3: '，您可以根据这个信息在图书馆里找到这本书。如果这个标签上有红色的划线，例如',
             text4: '，那就表示已经被借走了。'
@@ -538,25 +522,24 @@ export default {
           }),
           ...prefixed('item3', {
             text1: '如果您使用的是Chrome或者Edge浏览器，您可能会在浏览器上方的地址栏右侧发现“',
-            text2:
-              '安装”按钮。点击这个按钮可以把本网站安装到电脑上，成为一个应用，方便再次使用。'
+            text2: '安装”按钮。点击这个按钮可以把本网站安装到电脑上，成为一个应用，方便再次使用。'
           })
         }),
 
-        ...prefixed('mobile', {title:'在手机上访问',
-          item1:
-            '本网站针对手机访问进行了显示优化，您可以用手机扫描图中二维码访问本站；',
+        ...prefixed('mobile', {
+          title: '在手机上访问',
+          item1: '本网站针对手机访问进行了显示优化，您可以用手机扫描图中二维码访问本站；',
           item2:
             '如果您使用的是Android手机，当用Chrome或者Firefox浏览器访问本网站的时候，可能会看到页面下方弹出一个安装本网站的提示，您可以点击这个提示，将本网站安装到您的手机桌面上，方便再次使用；',
           ...prefixed('item3', {
             text1:
               '如果您使用的是iPhone或者iPad，当使用Safari浏览器访问本网站的时候，可以点击浏览器上方的“',
-            text2:
-              '分享”按钮，然后轻点“添加到主屏幕”，将本网站安装到手机主屏幕上。'
+            text2: '分享”按钮，然后轻点“添加到主屏幕”，将本网站安装到手机主屏幕上。'
           })
         }),
 
-        ...prefixed('feedback', {title:'问题反馈',
+        ...prefixed('feedback', {
+          title: '问题反馈',
           text1: '如果您发现本网站上有错误，或者有好的建议，请',
           link: '联系本站作者',
           text2: '，谢谢。'

@@ -23,7 +23,7 @@ const { value: tag, filter } = parsePath(route.params.tag)
 
 const tagParts = tag.split('-', 2)
 
-const title = tagParts.length > 1 && data.categories[tagParts[0]] ? tagParts[1] : tag
+const title = tagParts.length > 1 && data.categories.includes(tagParts[0]) ? tagParts[1] : tag
 </script>
 
 <template>

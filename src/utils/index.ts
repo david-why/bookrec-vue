@@ -101,8 +101,8 @@ export function doSearch(text: string) {
 }
 
 export function compareTags(a: string, b: string) {
-  const ac = data.categories[a.split('-')[0]] !== undefined || a.startsWith('Grades-')
-  const bc = data.categories[b.split('-')[0]] !== undefined || b.startsWith('Grades-')
+  const ac = data.categories.includes(a.split('-')[0]) || a.startsWith('Grades-')
+  const bc = data.categories.includes(b.split('-')[0]) || b.startsWith('Grades-')
   if (ac && !bc) {
     return 1
   }

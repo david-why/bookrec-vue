@@ -16,9 +16,9 @@ const store = useBooksStore()
 
 const category = route.params.category as string
 
-if (!data.categories[category]) {
-  router.replace({ name: data.homePage })
-}
+// if (!data.categories[category]) {
+//   router.replace({ name: data.homePage })
+// }
 
 const loading = ref(true)
 const books = ref([] as Book[])
@@ -30,8 +30,8 @@ const filteredTags = computed(() => {
   return tags.value
     .filter(
       (t) =>
-        t.startsWith(category + '-') &&
-        (!data.categories[category].descRequired || tagDesc.value[t])
+        t.startsWith(category + '-') /*&&
+        (!data.categories[category].descRequired || tagDesc.value[t])*/
     )
     .sort(compareTags)
 })

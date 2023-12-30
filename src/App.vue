@@ -32,8 +32,7 @@ function scrollTop() {
 <template>
   <div class="main">
     <div class="titles">
-      <div class="title-text" v-if="isHomePage">BASIS International School Nanjing Library</div>
-      <a class="link" href="#" v-else>
+      <a class="title-link link" href="#" v-if="!isHomePage">
         <img class="title-image" src="/img/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
       </a>
     </div>
@@ -87,6 +86,9 @@ function scrollTop() {
 }
 .content {
   grid-area: main;
+}
+.title-link {
+  display: flex;
 }
 .title-image {
   height: 1.2em;
