@@ -5,8 +5,7 @@
 <style scoped>
 .content {
   padding: 0.5em;
-  background-image: linear-gradient(340deg, #ccc, #eee, #fffd);
-  background-image: linear-gradient(340deg, #cccd, #eee, #eee, #fffd), url(@/assets/bookrec.svg);
+  background-image: linear-gradient(340deg, #cccd, #eee, #eee, #fffd), url(/img/bookrec.svg);
   background-repeat: no-repeat;
   background-position: left bottom;
 }

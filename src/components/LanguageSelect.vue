@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import BookTag from './BookTag.vue';
 const i18n = useI18n()
 
 function setLanguage(lang: string) {
@@ -9,8 +10,8 @@ function setLanguage(lang: string) {
 
 <template>
   <div class="lang-select">
-    <span class="book-tag lang" @click="setLanguage('en')">English</span>
-    <span class="book-tag lang" @click="setLanguage('zh')">中文</span>
+    <BookTag class="lang" @click="setLanguage('en')">English</BookTag>
+    <BookTag class="lang" @click="setLanguage('zh')">中文</BookTag>
   </div>
 </template>
 

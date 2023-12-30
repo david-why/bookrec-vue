@@ -3,6 +3,7 @@ import { lexileToString } from '@/utils'
 import BookDescText from './BookDescText.vue'
 import ToggleText from './ToggleText.vue'
 import cdata from '@/data'
+import BookTag from './BookTag.vue'
 
 const props = defineProps({
   data: {
@@ -34,12 +35,12 @@ const interest =
   <div class="tag-card">
     <div class="book-tags">
       <span class="book-index">{{ index + 1 }}.</span>
-      <span v-if="data.lexileMin !== Infinity && data.lexileMax !== -Infinity" class="book-tag">
-        {{ lexileToString(data.lexileMin) }}~{{ lexileToString(data.lexileMax) }}
-      </span>
-      <span v-if="data.interestMin !== Infinity && data.interestMax !== -Infinity" class="book-tag">
+      <BookTag v-if="data.lexileMin !== Infinity && data.lexileMax !== -Infinity"
+        >{{ lexileToString(data.lexileMin) }}~{{ lexileToString(data.lexileMax) }}</BookTag
+      >
+      <BookTag v-if="data.interestMin !== Infinity && data.interestMax !== -Infinity">
         {{ interest }}/{{ data.bookMin.toFixed(1) }}~{{ data.bookMax.toFixed(1) }}
-      </span>
+      </BookTag>
     </div>
     <h2 class="tag-title">
       <a :href="'#/tag/' + data.tag" class="title-link">{{

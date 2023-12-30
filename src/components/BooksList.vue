@@ -146,9 +146,7 @@ onUnmounted(() => {
         ></option>
       </select>
     </div>
-    <TagDescText v-if="description"
-      ><ToggleText :text="description" :open="true"></ToggleText
-    ></TagDescText>
+    <TagDescText v-if="description"><ToggleText :text="description"></ToggleText></TagDescText>
     <CardList :elements="limitedBooks" :component="BookCard"></CardList>
     <StatusBar>
       <b>{{ Math.min(shown, filteredBooks.length) }}</b> of <b>{{ filteredBooks.length }}</b> books

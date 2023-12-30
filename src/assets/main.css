@@ -4,11 +4,15 @@ body {
   width: 100%;
   font-family: 'Trebuchet MS', Arial, sans-serif;
   background-color: var(--background-color);
-  background-image: url(./bg.svg);
+  background-image: url(/img/bg.svg);
   background-size: 100vw;
   background-repeat: no-repeat;
   --background-color: #424242;
   --background-color-trans: #424242cc;
+}
+
+#app {
+  overflow-x: clip;
 }
 
 hr {
@@ -19,23 +23,7 @@ hr {
 .book-image {
   flex: 0 0 auto;
   width: 8em;
-  filter: drop-shadow(0.1em 0.1em 0.15em #666);
-}
-
-.book-tag {
-  background-color: #555;
-  color: white;
-  padding: 0.2em 0.4em;
-  margin: 0.2em;
-  border: black;
-  border-radius: 0.2em;
-  white-space: nowrap;
-  font-size: 0.8em;
-  font-family:
-    Courier New,
-    monospace;
-  font-weight: bold;
-  line-height: 1.4em;
+  /* filter: drop-shadow(0.1em 0.1em 0.15em #666); */
 }
 
 .book-index {
@@ -58,13 +46,6 @@ hr {
     flex: 0 0 auto;
     width: 30vw;
     align-self: center;
-  }
-  .book-tag {
-    font-size: 3.3vw;
-    padding: 0.8vw 1.6vw;
-    margin: 0.8vw;
-    border-radius: 0.8vw;
-    line-height: 5.6vw;
   }
   h1 {
     font-size: 8vw;

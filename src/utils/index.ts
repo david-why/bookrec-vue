@@ -3,6 +3,12 @@ import data from '@/data'
 import router from '@/router'
 import { useBooksStore } from '@/stores'
 
+export function delay(ms: number): Promise<unknown> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
 export function lexileToString(lexile: number) {
   if (lexile < 0) {
     return 'BR' + -lexile + 'L'

@@ -53,15 +53,11 @@ routes.push({
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: routes,
-  scrollBehavior() {
-    return { top: 0 }
-  }
+  routes: routes
 })
 
-router.beforeEach((to, from) => {
-  console.log(JSON.stringify(to))
-  console.log(JSON.stringify(from))
+router.afterEach(() => {
+  document.querySelector('#top')?.scrollIntoView()
 })
 
 export default router

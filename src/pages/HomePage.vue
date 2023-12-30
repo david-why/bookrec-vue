@@ -12,6 +12,9 @@ const i18n = useI18n()
 const lexileInput = ref<HTMLInputElement>()
 const gradeInput = ref<HTMLInputElement>()
 const keywordInput = ref<HTMLInputElement>()
+const qrcode = ref<HTMLImageElement>()
+
+const showQrcode = ref(false)
 
 function submitSearch() {
   if (keywordInput.value) {
@@ -19,14 +22,37 @@ function submitSearch() {
   }
 }
 
+function parseGrade(s: string): string | null {
+  if (s.toLowerCase() === 'k') {
+    return 'K'
+  }
+  const grade = parseInt(s)
+  if (isNaN(grade) || grade + '' !== s || grade < 1 || grade > 12 || Math.floor(grade) !== grade) {
+    return null
+  }
+  return grade + ''
+}
+
 function submitLexile() {
   if (lexileInput.value?.value) {
     router.push({ name: 'lexile', params: { lexile: lexileInput.value.value } })
   } else if (gradeInput.value?.value) {
-    router.push({ name: 'grade', params: { grade: gradeInput.value.value } })
+    const grade = parseGrade(gradeInput.value.value)
+    if (grade === null) {
+      window.alert('Grade must be a number between 1 and 12 or the letter "K"!')
+      gradeInput.value.value = ''
+      gradeInput.value.focus()
+    } else {
+      router.push({ name: 'grade', params: { grade: grade } })
+    }
   } else {
     router.push({ name: 'LexileGrade' })
   }
+}
+
+function onShowQrcode() {
+  showQrcode.value = true
+  setTimeout(() => qrcode.value?.scrollIntoView(), 100)
 }
 
 function t(key: string): string {
@@ -36,14 +62,16 @@ function t(key: string): string {
 
 <template>
   <TitleComponent>
-    <img class="title-img" src="@/assets/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
+    <img class="title-img" src="/img/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
   </TitleComponent>
   <ContentComponent>
     <LanguageSelect></LanguageSelect>
     <div class="grid">
       <div class="spancol element" style="background-color: #8884">
         <p>
-          {{ t('search.text1') }}<b>{{ t('search.bold1') }}</b
+          {{ t('search.text1')
+          }}<RouterLink :to="{ path: '/search/' }"
+            ><b>{{ t('search.bold1') }}</b></RouterLink
           >{{ t('search.text2') }}<b>{{ t('search.bold2') }}</b
           >{{ t('search.text3') }}<a :href="data.catalogLink">{{ t('search.link') }}</a>
         </p>
@@ -79,12 +107,9 @@ function t(key: string): string {
               ref="lexileInput"
             />{{ t('lexile.or')
             }}<input
-              type="number"
+              type="text"
               style="width: 24%"
               :placeholder="t('lexile.grade')"
-              step="1"
-              min="1"
-              max="12"
               ref="gradeInput"
             />
             <button>{{ $t('general.button.search') }}</button>
@@ -177,8 +202,13 @@ function t(key: string): string {
       </div>
     </div>
     <div class="center">
-      <p>{{ t('qrcode.text') }}</p>
-      <img src="@/assets/qr-binj.svg" alt="qrcode of this site" class="book-image" />
+      <p v-if="!showQrcode">
+        <a href="javascript:void(0)" @click="onShowQrcode">{{ t('qrcode.hidden') }}</a>
+      </p>
+      <template v-else>
+        <p>{{ t('qrcode.text') }}</p>
+        <img src="/img/qr-binj.svg" alt="qrcode of this site" class="book-image" ref="qrcode" />
+      </template>
     </div>
   </ContentComponent>
 </template>
@@ -197,7 +227,7 @@ function t(key: string): string {
   width: 100%;
 }
 .element {
-  box-shadow: 0 0 0.3em #0001;
+  box-shadow: 0 0 0.6em #0006;
   padding: 0 1em;
   margin: 1em;
   border-radius: 1em;

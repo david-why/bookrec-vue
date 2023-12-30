@@ -56,5 +56,14 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          data: [fileURLToPath(new URL('./src', import.meta.url)) + '/data.ts']
+        }
+      }
+    }
   }
 })

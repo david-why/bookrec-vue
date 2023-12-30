@@ -34,7 +34,7 @@ function scrollTop() {
     <div class="titles">
       <div class="title-text" v-if="isHomePage">BASIS International School Nanjing Library</div>
       <a class="link" href="#" v-else>
-        <img class="title-image" src="./assets/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
+        <img class="title-image" src="/img/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
       </a>
     </div>
     <div class="about">
@@ -54,7 +54,7 @@ function scrollTop() {
   <img
     v-if="isShowTop"
     class="float"
-    src="./assets/top-icon.svg"
+    src="/img/top-icon.svg"
     alt="Go to top"
     @click="scrollTop"
   />

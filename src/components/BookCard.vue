@@ -5,6 +5,8 @@ import { lexileToString } from '@/utils'
 import { onMounted, ref } from 'vue'
 import BookDescText from './BookDescText.vue'
 import ToggleText from './ToggleText.vue'
+import BookTag from './BookTag.vue'
+import BookImage from './BookImage.vue'
 const store = useBooksStore()
 
 const props = defineProps({
@@ -38,8 +40,7 @@ onMounted(async () => {
 
 <template>
   <div class="book-card">
-    <img
-      class="book-image"
+    <BookImage
       :alt="data.title"
       :src="
         data.coverImage === '!'
@@ -47,20 +48,15 @@ onMounted(async () => {
           : data.coverImage
       "
       @dblclick="logBook"
-    />
+    ></BookImage>
     <div class="book-text">
       <div class="book-tags">
         <span class="book-index">{{ index + 1 }}.</span>
-        <span v-text="lexileToString(data.lexile)" class="book-tag"></span>
-        <span
-          v-if="data.bookLevel !== null && data.interestLevel !== null"
-          v-text="data.bookLevel + '/' + data.interestLevel"
-          class="book-tag"
-        ></span>
-        <span
-          v-text="data.location"
-          :class="['book-tag', ...(data.unavailable ? ['unavailable-tag'] : [])]"
-        ></span>
+        <BookTag>{{ lexileToString(data.lexile) }}</BookTag>
+        <BookTag v-if="data.bookLevel !== null && data.interestLevel !== null"
+          >{{ data.interestLevel }}/{{ data.bookLevel }}</BookTag
+        >
+        <BookTag :unavailable="data.unavailable">{{ data.location }}</BookTag>
       </div>
       <h2 class="book-title" v-text="data.title"></h2>
       <div class="book-author" v-text="data.author"></div>
@@ -79,7 +75,7 @@ onMounted(async () => {
             >% of <b>{{ data.rateCount }}</b> readers like it
           </template>
         </div>
-        <span class="book-tag">ISBN: {{ data.isbn }}</span>
+        <BookTag>ISBN: {{ data.isbn }}</BookTag>
       </div>
     </div>
     <div class="book-recs" v-if="recs">
@@ -88,7 +84,7 @@ onMounted(async () => {
       </a>
       <div class="book-recs-recs" v-else @click="onToggleRecs">
         <p v-for="rec in recs" :key="rec.id">
-          <strong class="book-rec-name" v-text="rec.name"></strong>: {{ '⭐'.repeat(rec.rating) }}
+          <b class="book-rec-name" v-text="rec.name"></b>: {{ '⭐'.repeat(rec.rating) }}
           <span class="book-rec-text" v-text="rec.text"></span>
         </p>
       </div>
@@ -106,28 +102,21 @@ onMounted(async () => {
 .book-card > * {
   margin: 0 0.2em;
 }
-.book-image {
-  flex: 0 0 auto;
-  width: 8em;
-  filter: drop-shadow(0.1em 0.1em 0.15em #666);
-}
 .book-text {
-  flex: 1 0 0;
+  border-left: 2px dashed #ccc;
+  padding-left: 0.5em;
 }
 .book-text > * {
   padding: 0 0 0.4em;
-}
-.unavailable-tag {
-  text-decoration: line-through wavy red;
 }
 .book-title {
   margin: 0;
 }
 .book-rating {
+  flex: 1 0 0;
   font-style: italic;
   text-align: left;
   white-space: nowrap;
-  flex: 1 0 0;
 }
 .book-recs {
   grid-column: span 2;
@@ -146,17 +135,9 @@ onMounted(async () => {
   text-indent: -1em;
 }
 @media screen and (max-width: 37.5em) {
-  .book-image {
-    flex: 0 0 auto;
-    width: 30vw;
-    align-self: center;
-  }
   .book-text {
     align-self: flex-start;
     font-size: 4vw;
-  }
-  .book-card {
-    padding: 2vw;
   }
 }
 </style>

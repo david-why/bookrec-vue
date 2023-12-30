@@ -2,6 +2,7 @@
 import ContentComponent from '@/components/ContentComponent.vue'
 import LanguageSelect from '@/components/LanguageSelect.vue'
 import MainImage from '@/components/MainImage.vue'
+import QuoteText from '@/components/QuoteText.vue'
 import TagDescText from '@/components/TagDescText.vue'
 import TitleComponent from '@/components/TitleComponent.vue'
 import data from '@/data'
@@ -17,13 +18,13 @@ function t(key: string): string {
   <TitleComponent>About us</TitleComponent>
   <ContentComponent>
     <LanguageSelect></LanguageSelect>
-    <TagDescText class="quote">
+    <QuoteText class="quote">
       <p>{{ t('quote.line1') }}</p>
       <p>{{ t('quote.line2') }}</p>
       <p>{{ t('quote.line3') }}</p>
       <p>{{ t('quote.line4') }}</p>
       <p class="quote-author">{{ t('quote.author') }}</p>
-    </TagDescText>
+    </QuoteText>
     <hr />
     <h2>
       <span>{{ t('library.title') }}</span>
