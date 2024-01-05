@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import BookImage from '@/components/BookImage.vue'
 import BookTag from '@/components/BookTag.vue'
 import ContentComponent from '@/components/ContentComponent.vue'
 import LanguageSelect from '@/components/LanguageSelect.vue'
 import QuoteText from '@/components/QuoteText.vue'
 import TitleComponent from '@/components/TitleComponent.vue'
-import data from '@/data'
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 

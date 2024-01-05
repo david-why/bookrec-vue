@@ -1,6 +1,5 @@
 import type { Book, DataData, Restriction } from '@/books'
 import data from '@/data'
-import router from '@/router'
 
 export function delay(ms: number): Promise<unknown> {
   return new Promise((resolve) => {
@@ -74,9 +73,9 @@ export function filterBooks(books: Book[], data: DataData, restriction: Restrict
     }
     if (restriction.keywords && restriction.keywords.length) {
       // eslint-disable-next-line no-useless-escape
-      const title = book.title.split(/[\s\.,]+/g).map((s) => s.toLowerCase())
+      const title = book.title.split(/[\s\.,:\-]+/g).map((s) => s.toLowerCase())
       // eslint-disable-next-line no-useless-escape
-      const author = book.author.split(/[\s\.,]+/g).map((s) => s.toLowerCase())
+      const author = book.author.split(/[\s\.,:\-]+/g).map((s) => s.toLowerCase())
       for (const keyword of restriction.keywords) {
         if (
           !title.includes(keyword.toLowerCase()) &&
@@ -103,7 +102,7 @@ export function filterBooks(books: Book[], data: DataData, restriction: Restrict
 }
 
 export function doSearch(text: string) {
-  router.push({ path: '/search/' + text })
+  import('@/router').then((router) => router.default.push({ path: '/search/' + text }))
 }
 
 export function compareTags(a: string, b: string) {

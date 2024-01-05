@@ -3,11 +3,12 @@ import ContentComponent from '@/components/ContentComponent.vue'
 import LanguageSelect from '@/components/LanguageSelect.vue'
 import TitleComponent from '@/components/TitleComponent.vue'
 import data from '@/data'
-import router from '@/router'
 import { doSearch } from '@/utils'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 const i18n = useI18n()
+const router = useRouter()
 
 const lexileInput = ref<HTMLInputElement>()
 const gradeInput = ref<HTMLInputElement>()

@@ -1,3 +1,8 @@
+import AboutPage from './pages/AboutPage.vue'
+import HelpPage from './pages/HelpPage.vue'
+import HomePage from './pages/HomePage.vue'
+import LexilePage from './pages/LexilePage.vue'
+
 function prefixed(prefix: string, messages: Record<string, string>) {
   if (!prefix.endsWith('.')) {
     prefix = prefix + '.'
@@ -26,25 +31,25 @@ export default {
       name: 'Home',
       display: true,
       path: 'library',
-      component: () => import('@/pages/HomePage.vue')
+      component: HomePage
     },
     {
       name: 'About us',
       display: true,
       path: 'about',
-      component: () => import('@/pages/AboutPage.vue')
+      component: AboutPage
     },
     {
       name: 'Help',
       display: true,
       path: 'help',
-      component: () => import('@/pages/HelpPage.vue')
+      component: HelpPage
     },
     {
       name: 'LexileGrade',
       display: false,
       path: 'lexile',
-      component: () => import('@/pages/LexilePage.vue')
+      component: LexilePage
     }
   ],
   homePage: 'Home',
@@ -117,7 +122,8 @@ export default {
           title: "Nighthawk's Choice",
           text1: 'We are proud to present the ',
           bold1: "Nighthawk's Choice",
-          text2: ' book lists, which are book lists created by our students. Click on the links to check them out!',
+          text2:
+            ' book lists, which are book lists created by our students. Click on the links to check them out!',
           link: "See all of the Nighthawk's Choice book lists here!"
         }),
 
@@ -367,11 +373,11 @@ export default {
         }),
 
         ...prefixed('reclist', {
-          title: "夜鹰之选",
+          title: '夜鹰之选',
           text1: '我们学校的同学为大家制作了',
-          bold1: "《夜鹰之选》",
+          bold1: '《夜鹰之选》',
           text2: '书单，点击下面的链接查看：',
-          link: "点击这里查看所有《夜鹰之选》的书单。"
+          link: '点击这里查看所有《夜鹰之选》的书单。'
         }),
 
         'qrcode.hidden': '手机访问本站请点击这里并扫描二维码',

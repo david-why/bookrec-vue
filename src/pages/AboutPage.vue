@@ -2,7 +2,6 @@
 import ContentComponent from '@/components/ContentComponent.vue'
 import LanguageSelect from '@/components/LanguageSelect.vue'
 import QuoteText from '@/components/QuoteText.vue'
-import TagDescText from '@/components/TagDescText.vue'
 import TitleComponent from '@/components/TitleComponent.vue'
 import data from '@/data'
 import { useI18n } from 'vue-i18n'

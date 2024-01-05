@@ -1,38 +1,44 @@
-import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import data from '@/data'
 import { scrollTop } from '@/utils'
+import CategoryView from '@/views/CategoryView.vue'
+import GradeView from '@/views/GradeView.vue'
+import LexileView from '@/views/LexileView.vue'
+import RecommendedView from '@/views/RecommendedView.vue'
+import SearchView from '@/views/SearchView.vue'
+import TagView from '@/views/TagView.vue'
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
-    component: () => import('@/views/SearchView.vue'),
+    component: SearchView,
     path: '/search/:term*',
     alias: ['/Search/:term*'],
     name: 'search'
   },
   {
-    component: () => import('@/views/LexileView.vue'),
+    component: LexileView,
     path: '/lexile/:lexile*',
     alias: ['/Lexile/:lexile*'],
     name: 'lexile'
   },
   {
-    component: () => import('@/views/GradeView.vue'),
+    component: GradeView,
     path: '/grade/:grade*',
     alias: ['/Grade/:grade*'],
     name: 'grade'
   },
   {
-    component: () => import('@/views/TagView.vue'),
+    component: TagView,
     path: '/tag/:tag*',
     name: 'tag'
   },
   {
-    component: () => import('@/views/CategoryView.vue'),
+    component: CategoryView,
     path: '/category/:category',
     name: 'category'
   },
   {
-    component: () => import('@/views/RecommendedView.vue'),
+    component: RecommendedView,
     path: '/recommended',
     name: 'recommended'
   }
@@ -58,6 +64,12 @@ const router = createRouter({
 })
 
 router.afterEach(() => {
+  if (location.port === '') {
+    fetch(
+      `https://tracker.webook.club/0?tracking=${Date.now()}+${encodeURIComponent(location.href)}`,
+      { mode: 'no-cors' }
+    )
+  }
   scrollTop()
 })
 
