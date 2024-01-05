@@ -3,7 +3,6 @@ import BookImage from '@/components/BookImage.vue'
 import BookTag from '@/components/BookTag.vue'
 import ContentComponent from '@/components/ContentComponent.vue'
 import LanguageSelect from '@/components/LanguageSelect.vue'
-import MainImage from '@/components/MainImage.vue'
 import QuoteText from '@/components/QuoteText.vue'
 import TitleComponent from '@/components/TitleComponent.vue'
 import data from '@/data'
@@ -46,7 +45,7 @@ function t(key: string): string {
     <h2>
       <span>{{ t('lists.title') }}</span>
     </h2>
-    <MainImage src="/img/br_help_lists.webp"></MainImage>
+    <img class="main-image" src="@/assets/br_help_lists.webp" />
     <p>{{ t('lists.text') }}</p>
     <ol>
       <li>{{ t('lists.item1') }}</li>
@@ -61,7 +60,7 @@ function t(key: string): string {
     <h2>
       <span>{{ t('books.title') }}</span>
     </h2>
-    <MainImage src="/img/br_help_books.webp"></MainImage>
+    <img class="main-image" src="@/assets/br_help_books.webp">
     <p>{{ t('books.text') }}</p>
     <ol>
       <li>
@@ -100,7 +99,7 @@ function t(key: string): string {
         >{{ t('computer.item2.text2') }}
       </li>
       <li>
-        {{ t('computer.item3.text1') }}<img class="icon" src="/img/mat_install_desktop.svg" />{{
+        {{ t('computer.item3.text1') }}<img class="icon" src="@/assets/mat_install_desktop.svg" />{{
           t('computer.item3.text2')
         }}
       </li>
@@ -109,12 +108,12 @@ function t(key: string): string {
     <h2>
       <span>{{ t('mobile.title') }}</span>
     </h2>
-    <BookImage class="qrcode" src="/img/qr-binj.svg" />
+    <img class="book-image qrcode" src="@/assets/qr-binj.svg" />
     <ol>
       <li>{{ t('mobile.item1') }}</li>
       <li>{{ t('mobile.item2') }}</li>
       <li>
-        {{ t('mobile.item3.text1') }}<img class="icon" src="/img/mat_ios_share.svg" />{{
+        {{ t('mobile.item3.text1') }}<img class="icon" src="@/assets/mat_ios_share.svg" />{{
           t('mobile.item3.text2')
         }}
       </li>

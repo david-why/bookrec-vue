@@ -6,6 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     VitePWA({
@@ -16,7 +17,13 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.pathname.endsWith('.json'),
-            handler: 'StaleWhileRevalidate'
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'sw-cache-bookrec-json',
+              expiration: {
+                maxAgeSeconds: 60 * 60
+              }
+            }
           },
           {
             urlPattern: ({ url }) =>

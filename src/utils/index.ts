@@ -1,12 +1,18 @@
 import type { Book, DataData, Restriction } from '@/books'
 import data from '@/data'
 import router from '@/router'
-import { useBooksStore } from '@/stores'
 
 export function delay(ms: number): Promise<unknown> {
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
+}
+
+export function scrollTop() {
+  const el = document.querySelector('#top')
+  if (el) {
+    el.scrollIntoView()
+  }
 }
 
 export function lexileToString(lexile: number) {
@@ -66,7 +72,7 @@ export function filterBooks(books: Book[], data: DataData, restriction: Restrict
         continue
       }
     }
-    if (restriction.keywords?.length) {
+    if (restriction.keywords && restriction.keywords.length) {
       // eslint-disable-next-line no-useless-escape
       const title = book.title.split(/[\s\.,]+/g).map((s) => s.toLowerCase())
       // eslint-disable-next-line no-useless-escape

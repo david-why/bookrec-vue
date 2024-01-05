@@ -44,7 +44,7 @@ onMounted(async () => {
       :alt="data.title"
       :src="
         data.coverImage === '!'
-          ? '/img/covers/' + data.isbn.substring(data.isbn.length - 2) + '/' + data.isbn + '.webp'
+          ? './img/covers/' + data.isbn.substring(data.isbn.length - 2) + '/' + data.isbn + '.webp'
           : data.coverImage
       "
       @dblclick="logBook"
@@ -80,7 +80,7 @@ onMounted(async () => {
     </div>
     <div class="book-recs" v-if="recs">
       <a href="javascript:void(0)" class="book-recs-link" v-if="!recsOpen" @click="onToggleRecs()">
-        Click here to read {{ recs.length }} recommendation{{ recs.length > 1 ? 's' : '' }}
+        Click here to read {{ recs.length }} review{{ recs.length > 1 ? 's' : '' }}
       </a>
       <div class="book-recs-recs" v-else @click="onToggleRecs">
         <p v-for="rec in recs" :key="rec.id">
@@ -103,8 +103,8 @@ onMounted(async () => {
   margin: 0 0.2em;
 }
 .book-text {
-  border-left: 2px dashed #ccc;
-  padding-left: 0.5em;
+  border-left: 0.3em dotted #ccc;
+  padding-left: 0.3em;
 }
 .book-text > * {
   padding: 0 0 0.4em;
@@ -138,6 +138,12 @@ onMounted(async () => {
   .book-text {
     align-self: flex-start;
     font-size: 4vw;
+  }
+}
+@media print {
+  .book-rating,
+  .book-recs-link {
+    display: none;
   }
 }
 </style>

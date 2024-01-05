@@ -50,9 +50,9 @@ export default {
   homePage: 'Home',
 
   issues: [
-    "Nighthawk's Choice-Issue 1. What Kids Are Reading - Lower Grade",
-    "Nighthawk's Choice-Issue 1. What Kids Are Reading - Middle Grade",
-    "Nighthawk's Choice-Issue 1. What Kids Are Reading - Upper Grade"
+    "Nighthawk's Choice-List 1. What Kids Are Reading - Primary School",
+    "Nighthawk's Choice-List 1. What Kids Are Reading - Middle School",
+    "Nighthawk's Choice-List 1. What Kids Are Reading - High School"
   ],
 
   messages: {
@@ -230,7 +230,7 @@ export default {
           text: 'When you open a book list, or search for books by keywords, you will see a list of books, as shown in the second figure to the right.',
           ...prefixed('item1', {
             text1: 'You will see many book cards ',
-            bold1: 'sorted by decreasing popularity',
+            bold: 'sorted by decreasing popularity',
             text2:
               '. If there are too many books displayed, you can use the filter menu to further select books. The filter is at the top of the page below the title and, by default, shows the total number of books. Clicking on the filter will display a number of tags, as well as the number of books in each category. You can narrow down the number of books by clicking a tag. This operation can be repeated until the desired filter is achieved. At any time you can click "CLEAR FILTERS" at the top of the filter menu to clear filters and show all books.'
           }),
@@ -477,7 +477,7 @@ export default {
           text: '当您打开一个书单，或者搜索图书，您将看到图书列表，如图所示：',
           ...prefixed('item1', {
             text1: '您可能看到很多张图书卡片，它们是按照图书的',
-            bold1: '热门程度由高到低排序',
+            bold: '热门程度由高到低排序',
             text2:
               '的。如果显示的图书太多，您还可以使用过滤器下拉菜单来进一步的挑选图书。过滤器在页面标题的下方，默认显示的是图书总数。点击过滤器后会显示很多分类标签，以及每个分类下的图书数量。您可以通过点击分类标签来缩小图书数量。这个操作可以重复进行，直到只剩最后一本图书。任何时候您都可以点击过滤器里顶部的“CLEAR FILTERS”来恢复显示所有图书；'
           }),

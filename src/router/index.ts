@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import data from '@/data'
+import { scrollTop } from '@/utils'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -57,7 +58,7 @@ const router = createRouter({
 })
 
 router.afterEach(() => {
-  document.querySelector('#top')?.scrollIntoView()
+  scrollTop()
 })
 
 export default router

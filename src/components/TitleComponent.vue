@@ -51,4 +51,12 @@ function onNext() {
     margin: 0;
   }
 }
+@media print {
+  .button {
+    display: none;
+  }
+  .h1 {
+    color: black;
+  }
+}
 </style>

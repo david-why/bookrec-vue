@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import ContentComponent from '@/components/ContentComponent.vue'
 import LanguageSelect from '@/components/LanguageSelect.vue'
-import MainImage from '@/components/MainImage.vue'
 import QuoteText from '@/components/QuoteText.vue'
 import TagDescText from '@/components/TagDescText.vue'
 import TitleComponent from '@/components/TitleComponent.vue'
@@ -35,7 +34,7 @@ function t(key: string): string {
     <h2>
       <span>{{ t('creator.title') }}</span>
     </h2>
-    <MainImage src="/img/about.webp"></MainImage>
+    <img class="main-image" src="@/assets/about.webp" />
     <p>{{ t('creator.line1') }}</p>
     <p>
       {{ t('creator.line2.text1') }}<i>{{ t('creator.line2.italic1') }}</i

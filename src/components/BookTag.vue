@@ -34,4 +34,10 @@ defineProps({ unavailable: { type: Boolean, default: false } })
     line-height: 5.6vw;
   }
 }
+@media print {
+  .book-tag {
+    color: blue;
+    text-decoration: underline grey;
+  }
+}
 </style>

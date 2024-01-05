@@ -34,9 +34,9 @@ function parseGrade(s: string): string | null {
 }
 
 function submitLexile() {
-  if (lexileInput.value?.value) {
+  if (lexileInput.value && lexileInput.value.value) {
     router.push({ name: 'lexile', params: { lexile: lexileInput.value.value } })
-  } else if (gradeInput.value?.value) {
+  } else if (gradeInput.value && gradeInput.value.value) {
     const grade = parseGrade(gradeInput.value.value)
     if (grade === null) {
       window.alert('Grade must be a number between 1 and 12 or the letter "K"!')
@@ -52,7 +52,7 @@ function submitLexile() {
 
 function onShowQrcode() {
   showQrcode.value = true
-  setTimeout(() => qrcode.value?.scrollIntoView(), 100)
+  setTimeout(() => qrcode.value && qrcode.value.scrollIntoView(), 100)
 }
 
 function t(key: string): string {
@@ -62,7 +62,7 @@ function t(key: string): string {
 
 <template>
   <TitleComponent>
-    <img class="title-img" src="/img/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
+    <img class="title-img" src="@/assets/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
   </TitleComponent>
   <ContentComponent>
     <LanguageSelect></LanguageSelect>
@@ -215,7 +215,7 @@ function t(key: string): string {
       </p>
       <template v-else>
         <p>{{ t('qrcode.text') }}</p>
-        <img src="/img/qr-binj.svg" alt="qrcode of this site" class="book-image" ref="qrcode" />
+        <img src="@/assets/qr-binj.svg" alt="qrcode of this site" class="book-image" ref="qrcode" />
       </template>
     </div>
   </ContentComponent>

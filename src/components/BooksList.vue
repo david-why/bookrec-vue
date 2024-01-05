@@ -39,7 +39,12 @@ const filteredBooks = computed(() => {
     restriction
   )
   for (const book of filtered) {
-    if (data.config?.useUnavailable && bdata.value?.unavailable.includes(book.isbn)) {
+    if (
+      data.config &&
+      data.config.useUnavailable &&
+      bdata.value &&
+      bdata.value.unavailable.includes(book.isbn)
+    ) {
       book.unavailable = true
     }
   }
@@ -60,7 +65,10 @@ const filterOptions = computed(() => {
   const tagsCount: Record<string, number> = {}
   for (const book of filteredBooks.value) {
     for (const tag of book.tags) {
-      if (!restriction.filter.includes(tag) && !restriction.tags?.includes(tag)) {
+      if (
+        !restriction.filter.includes(tag) &&
+        !(restriction.tags && restriction.tags.includes(tag))
+      ) {
         if (!allTags.includes(tag)) {
           allTags.push(tag)
           tagsCount[tag] = 1
@@ -175,6 +183,11 @@ onUnmounted(() => {
     font-size: 5vw;
     margin: 0 0 0.7em;
     text-align: center;
+  }
+}
+@media print {
+  .filter-container {
+    display: none;
   }
 }
 </style>

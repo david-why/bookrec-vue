@@ -49,25 +49,28 @@ defineProps({ component: { required: true }, elements: { type: Array<any>, requr
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
-/* @media print { */
-  .print-no-break,.card,
-  .print-no-break :deep(*) {
-    break-inside: avoid;
-  }
-  .print-no-break :deep(*) {
-    break-before: avoid;
-    break-after: avoid;
-  }
-/* } */
+/* .print-no-break,
+.card,
+.print-no-break :deep(*) {
+  break-inside: avoid;
+}
+.print-no-break :deep(*) {
+  break-before: avoid;
+  break-after: avoid;
+} */
+.print-no-break {
+  break-inside: avoid;
+  /* display: inline-grid; */
+  page-break-inside: avoid;
+}
 @media print {
-  .print-no-break,.card,
-  .print-no-break :deep(*) {
-    break-inside: avoid;
+  .card-list {
+    grid-template-columns: 1fr;
   }
-  .print-no-break :deep(*) {
-    break-before: avoid;
-    break-after: avoid;
+  .card {
+    margin: 3px;
+    border-radius: 9px;
+    border: 0.5px solid #ccc;
   }
-
 }
 </style>

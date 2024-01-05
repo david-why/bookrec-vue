@@ -8,7 +8,7 @@ export const useBooksStore = defineStore('counter', () => {
   const tags = ref([] as string[])
 
   async function updateData() : Promise<DataData> {
-    return (data.value = await (await fetch('/data.json')).json())
+    return (data.value = await (await fetch('./data.json')).json())
   }
 
   async function getData() : Promise<DataData> {
@@ -20,7 +20,7 @@ export const useBooksStore = defineStore('counter', () => {
   }
 
   async function updateBooks(): Promise<BooksData> {
-    return (books.value = await (await fetch('/books.json')).json())
+    return (books.value = await (await fetch('./books.json')).json())
   }
 
   async function getBooks(): Promise<BooksData> {

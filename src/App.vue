@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue'
+import data from '@/data'
+import { scrollTop } from '@/utils'
+import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import data from './data'
-import router from './router'
 const route = useRoute()
 
 const isHomePage = computed(() => route.name === data.homePage)
@@ -23,17 +23,13 @@ onBeforeMount(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
 })
-
-function scrollTop() {
-  document.querySelector('#top')?.scrollIntoView()
-}
 </script>
 
 <template>
   <div class="main">
     <div class="titles">
       <a class="title-link link" href="#" v-if="!isHomePage">
-        <img class="title-image" src="/img/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
+        <img class="title-image" src="@/assets/bookrec.svg" alt="BOOK RECOMMENDATIONS" />
       </a>
     </div>
     <div class="about">
@@ -52,8 +48,8 @@ function scrollTop() {
   </div>
   <img
     v-if="isShowTop"
-    class="float"
-    src="/img/top-icon.svg"
+    class="float top-icon"
+    src="@/assets/top-icon.svg"
     alt="Go to top"
     @click="scrollTop"
   />
@@ -120,6 +116,18 @@ function scrollTop() {
   }
   .about {
     font-size: 4vw;
+  }
+}
+@media print {
+  .titles,
+  .about,
+  .top-icon {
+    display: none;
+  }
+}
+@media all and (display-mode: standalone) {
+  .about a {
+    color: #ffc;
   }
 }
 </style>
