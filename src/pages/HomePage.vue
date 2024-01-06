@@ -19,6 +19,13 @@ const showQrcode = ref(false)
 
 function submitSearch() {
   if (keywordInput.value) {
+    const str = keywordInput.value.value
+    for (let i = 0; i < str.length; i++) {
+      if (str.charCodeAt(i) > 0xff) {
+        alert('Please type search terms in English!')
+        break
+      }
+    }
     doSearch(keywordInput.value.value)
   }
 }
