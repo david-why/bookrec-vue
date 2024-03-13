@@ -7,6 +7,7 @@ const route = useRoute()
 
 const isHomePage = computed(() => route.name === data.homePage)
 const isShowTop = ref(false)
+const isRefreshing = ref(false)
 
 function onScroll() {
   if (window.scrollY >= 2000) {
@@ -16,11 +17,25 @@ function onScroll() {
   }
 }
 
+function onControllerChange() {
+  if (isRefreshing.value) {
+    return
+  }
+  isRefreshing.value = true
+  location.reload()
+}
+
 onBeforeMount(() => {
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener('controllerchange', onControllerChange)
+  }
   window.addEventListener('scroll', onScroll)
 })
 
 onBeforeUnmount(() => {
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.removeEventListener('controllerchange', onControllerChange)
+  }
   window.removeEventListener('scroll', onScroll)
 })
 </script>
