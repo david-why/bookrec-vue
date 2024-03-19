@@ -16,14 +16,14 @@ function t(key: string): string {
   <TitleComponent>About us</TitleComponent>
   <ContentComponent>
     <LanguageSelect></LanguageSelect>
-    <QuoteText class="quote">
+    <QuoteText hidden class="quote">
       <p>{{ t('quote.line1') }}</p>
       <p>{{ t('quote.line2') }}</p>
       <p>{{ t('quote.line3') }}</p>
       <p>{{ t('quote.line4') }}</p>
       <p class="quote-author">{{ t('quote.author') }}</p>
     </QuoteText>
-    <hr />
+    <hr hidden />
     <h2>
       <span>{{ t('library.title') }}</span>
     </h2>
