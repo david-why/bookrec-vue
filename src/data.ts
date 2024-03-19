@@ -55,9 +55,9 @@ export default {
   homePage: 'Home',
 
   issues: [
-    "Nighthawk's Choice-List 1. What Kids Are Reading - Primary School",
-    "Nighthawk's Choice-List 1. What Kids Are Reading - Middle School",
-    "Nighthawk's Choice-List 1. What Kids Are Reading - High School"
+    "Nighthawk's Choice-Issue 2. What Kids Are Reading - Primary School",
+    "Nighthawk's Choice-Issue 2. What Kids Are Reading - Middle School",
+    "Nighthawk's Choice-Issue 2. What Kids Are Reading - High School"
   ],
 
   messages: {
