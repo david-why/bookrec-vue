@@ -45,7 +45,6 @@ function onNext() {
 @media screen and (max-width: 37.5em) {
   .title {
     justify-content: center;
-    margin: 0 2vw;
   }
   .button {
     font-size: 8vw;
